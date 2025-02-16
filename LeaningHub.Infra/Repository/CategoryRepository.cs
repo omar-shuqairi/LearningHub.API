@@ -18,9 +18,7 @@ namespace LeaningHub.Infra.Repository
         private readonly IDbContext _dbContext;
         public CategoryRepository(IDbContext dbContext)
         {
-
             _dbContext = dbContext;
-
         }
         public List<Category> GetAllCategory()
         {
