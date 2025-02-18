@@ -19,4 +19,8 @@
     <ProjectReference Include="..\LearningHub.Core\LearningHub.Core.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="images\" />
+  </ItemGroup>
+
 </Project>
