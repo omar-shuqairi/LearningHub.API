@@ -54,7 +54,7 @@ namespace LeaningHub.Infra.Services
             return _studentRepository.GetStudentsByBirthDateRange(strat_date, end_date);
         }
 
-        public List<StudentFullNameDto> GetStudentsFullName()
+        public List<string> GetStudentsFullName()
         {
             return _studentRepository.GetStudentsFullName();
         }

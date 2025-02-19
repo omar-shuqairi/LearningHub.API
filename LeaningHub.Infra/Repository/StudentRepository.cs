@@ -67,10 +67,10 @@ namespace LeaningHub.Infra.Repository
             return result.FirstOrDefault();
         }
 
-        public List<StudentFullNameDto> GetStudentsFullName()
+        public List<string> GetStudentsFullName()
         {
-            IEnumerable<StudentFullNameDto> result = _dbContext.Connection.Query<StudentFullNameDto>
-               ("Student_package.getstudentname", commandType: CommandType.StoredProcedure);
+            IEnumerable<string> result = _dbContext.Connection.Query<string>
+               ("Student_package.getstudentsfullname", commandType: CommandType.StoredProcedure);
 
             return result.ToList();
         }

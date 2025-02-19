@@ -1,5 +1,6 @@
 ﻿using LeaningHub.Infra.Services;
 using LearningHub.Core.data;
+using LearningHub.Core.DTOs;
 using LearningHub.Core.Services;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
@@ -50,6 +51,20 @@ namespace LearningHub.API.Controllers
         public void DeleteStdCourse(int id)
         {
             _stdCourseService.DeleteStdCourse(id);
+        }
+
+        [HttpGet]
+        [Route("TotalStudentInEachCourse")]
+        public List<TotalStudent> TotalStudentInEachCourse()
+        {
+            return _stdCourseService.TotalStudentInEachCourse();
+        }
+
+        [HttpPost]
+        [Route("SearchCourseStudent")]
+        public List<Search> SearchCourseStudent(Search search)
+        {
+            return _stdCourseService.SearchCourseStudent(search);
         }
     }
 }

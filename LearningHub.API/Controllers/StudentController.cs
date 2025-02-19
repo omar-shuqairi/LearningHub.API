@@ -54,7 +54,7 @@ namespace LearningHub.API.Controllers
 
         [HttpGet]
         [Route("GetStudentsFullName")]
-        public List<StudentFullNameDto> GetStudentsFullName()
+        public List<string> GetStudentsFullName()
         {
             return _studentService.GetStudentsFullName();
         }

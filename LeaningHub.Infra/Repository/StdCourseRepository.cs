@@ -1,6 +1,7 @@
 ﻿using Dapper;
 using LearningHub.Core.common;
 using LearningHub.Core.data;
+using LearningHub.Core.DTOs;
 using LearningHub.Core.Repository;
 using System;
 using System.Collections.Generic;
@@ -64,6 +65,25 @@ namespace LeaningHub.Infra.Repository
             p.Add("course_id", stdcourse.Courseid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             p.Add("student_id", stdcourse.Studentid, dbType: DbType.Int32, direction: ParameterDirection.Input);
             var result = _dbContext.Connection.Execute("StdCourse_package.updatestdcourse", p, commandType: CommandType.StoredProcedure);
+        }
+        public List<TotalStudent> TotalStudentInEachCourse()
+        {
+            IEnumerable<TotalStudent> result = _dbContext.Connection.Query<TotalStudent>
+               ("StdCourse_package.TotalStudentInEachCourse", commandType: CommandType.StoredProcedure);
+
+            return result.ToList();
+        }
+
+        public List<Search> SearchCourseStudent(Search search)
+        {
+            var p = new DynamicParameters();
+            p.Add("StdName", search.Fname, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("cName", search.Coursename, dbType: DbType.String, direction: ParameterDirection.Input);
+            p.Add("Datefrom", search.DateFrom, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            p.Add("dateto", search.DateTo, dbType: DbType.DateTime, direction: ParameterDirection.Input);
+            var result = _dbContext.Connection.Query<Search>
+               ("StdCourse_package.SearchCourseStudent", p, commandType: CommandType.StoredProcedure);
+            return result.ToList();
         }
     }
 }

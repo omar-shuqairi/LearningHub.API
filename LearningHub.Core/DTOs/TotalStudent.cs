@@ -6,9 +6,9 @@ using System.Threading.Tasks;
 
 namespace LearningHub.Core.DTOs
 {
-    public class StudentFullNameDto
+    public class TotalStudent
     {
-        public string Fname { get; set; }
-        public string Lname { get; set; }
+        public string? CourseName { get; set; }
+        public decimal? StudentCount { get; set; }
     }
 }

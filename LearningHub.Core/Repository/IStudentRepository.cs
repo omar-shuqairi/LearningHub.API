@@ -15,7 +15,7 @@ namespace LearningHub.Core.Repository
         void UpdateStudent(Student student);
         void DeleteStudent(int id);
         Student GetStudentById(int id);
-        List<StudentFullNameDto> GetStudentsFullName();
+        List<string> GetStudentsFullName();
         Student GetStudentByFisrtName(string name);
         Student GetStudentByBirthDate(DateTime dob);
         List<Student> GetStudentsByBirthDateRange(DateTime strat_date, DateTime end_date);

@@ -1,4 +1,5 @@
 ﻿using LearningHub.Core.data;
+using LearningHub.Core.DTOs;
 using LearningHub.Core.Repository;
 using LearningHub.Core.Services;
 using System;
@@ -41,6 +42,16 @@ namespace LeaningHub.Infra.Services
         public void UpdateStdCourse(Stdcourse stdcourse)
         {
             _stdCourseRepository.UpdateStdCourse(stdcourse);
+        }
+
+        public List<TotalStudent> TotalStudentInEachCourse()
+        {
+            return _stdCourseRepository.TotalStudentInEachCourse();
+        }
+
+        public List<Search> SearchCourseStudent(Search search)
+        {
+            return _stdCourseRepository.SearchCourseStudent(search);
         }
     }
 }
