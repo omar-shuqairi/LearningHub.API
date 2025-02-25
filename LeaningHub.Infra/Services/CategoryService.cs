@@ -34,6 +34,11 @@ namespace LeaningHub.Infra.Services
             return _categoryRepository.GetAllCategory();
         }
 
+        public Task<List<Category>> GetallCategoryCourse()
+        {
+            return _categoryRepository.GetallCategoryCourse();
+        }
+
         public Category GetCategoryById(int id)
         {
             return _categoryRepository.GetCategoryById(id);

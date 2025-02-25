@@ -63,6 +63,31 @@ namespace LeaningHub.Infra.Repository
             return result.FirstOrDefault();
         }
 
+        public async Task<List<Category>> GetallCategoryCourse()
+        {
+            var result = await _dbContext.Connection.QueryAsync<Category, Course, Category>
+                ("Category_package.getallcategorycourse",
+                (category, course) =>
+                {
+                    category.Courses.Add(course);
+                    return category;
+                },
+                splitOn: "courseid",
+                param: null,
+                commandType: CommandType.StoredProcedure
+                );
+            var result2 = result.GroupBy(p =>
+            p.Categoryid).Select(g =>
+            {
+                var group = g.First();
+                group.Courses = g.Select(p =>
+                p.Courses.Single()).ToList();
+                return group;
 
+            }
+            );
+            return result2.ToList();
+
+        }
     }
 }

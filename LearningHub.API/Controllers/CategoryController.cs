@@ -49,5 +49,11 @@ namespace LearningHub.API.Controllers
         {
             _categoryService.DeleteCategory(id);
         }
+        [HttpGet]
+        [Route("GetallCategoryCourse")]
+        public Task<List<Category>> GetallCategoryCourse()
+        {
+            return _categoryService.GetallCategoryCourse();
+        }
     }
 }

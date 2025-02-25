@@ -14,5 +14,7 @@ namespace LearningHub.Core.Repository
         void UpdateCategory(Category category);
         void DeleteCategory(int id);
         Category GetCategoryById(int id);
+
+        Task<List<Category>> GetallCategoryCourse();
     }
 }
