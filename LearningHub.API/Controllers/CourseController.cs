@@ -1,5 +1,6 @@
 ﻿using LearningHub.Core.data;
 using LearningHub.Core.Services;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 
@@ -43,6 +44,8 @@ namespace LearningHub.API.Controllers
         }
 
         [HttpDelete]
+        [Authorize]
+        [CheckClaimsAtt("RoleId", "3")]
         [Route("DeleteCourse/{id}")]
 
         public void DeleteCourse(int id)
