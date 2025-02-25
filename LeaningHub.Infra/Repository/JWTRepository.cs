@@ -16,7 +16,6 @@ namespace LeaningHub.Infra.Repository
     {
 
         private readonly IDbContext _dbContext;
-
         public JWTRepository(IDbContext dbContext)
         {
             _dbContext = dbContext;
